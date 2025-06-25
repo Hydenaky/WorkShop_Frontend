@@ -1,0 +1,43 @@
+<p-button icon="pi pi-pencil" label="Add Attendaees" (onClick)="showDialog(false)" severity="contrast"
+    [style]="{margin: '1em'}"></p-button>
+
+<p-dialog [header]="(data && data.publicId) ? 'Update Attendaee':'Add Attendaee'" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">
+    <form [formGroup]="form" style="display: flex;flex-direction: column; gap: 1em;">
+        <input type="number" pInputText formControlName="event" placeholder="Event" [autofocus]="true"
+            [style]="{borderRadius: '8px', padding: '5px'}" />
+        <input type="text" pInputText formControlName="name" placeholder="Name" [autofocus]="true"
+            [style]="{borderRadius: '8px', padding: '5px'}" />
+        <input type="text" pInputText formControlName="email" placeholder="Email"
+            [style]="{borderRadius: '8px', padding: '5px'}" />
+        <div>
+            <p-button label="Cancel" severity="secondary" (click)="visible = false" [style]="{margin: '1em'}" />
+            <p-button label="Save" (click)="visible = false" (onClick)="(data && data.publicId) ? updateAtt(data.publicId):saveAttd()" />
+        </div>
+    </form>
+</p-dialog>
+
+<br>
+<p-table [value]="attendaees" [tableStyle]="{ 'width': '30dvw' }">
+    <ng-template #header>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Event</th>
+            <th>Actions</th>
+            <th>
+                <p-button (onClick)="getAttd()" icon="pi pi-refresh" severity="contrast"></p-button>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template #body let-att>
+        <tr>
+            <td>{{ att.publicId }}</td>
+            <td>{{ att.name }}</td>
+            <td>{{ att.email }}</td>
+            <td>{{ att.eventAsigned}}</td>
+            <td><p-button icon="pi pi-pencil" severity="contrast" (onClick)="showDialog(att)"></p-button></td>
+            <td><p-button icon="pi pi-trash" severity="contrast" (onClick)="deleteEvnt(att.publicId, att.eventAsigned)"></p-button>
+        </tr>
+    </ng-template>
+</p-table>

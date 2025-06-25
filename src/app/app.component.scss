@@ -1,0 +1,13 @@
+    .DarkMode {
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        bottom: 0;
+    }
+
+    ::ng-deep .DarkMode .p-button {
+        border-top-left-radius: 0;
+        //border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+    }

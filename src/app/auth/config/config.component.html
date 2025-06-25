@@ -1,0 +1,13 @@
+<form [formGroup]="form">
+    <p-inputgroup>
+        <p-inputgroup-addon>
+            <i class="pi pi-user"></i>
+        </p-inputgroup-addon>
+        <input pInputText placeholder="Username" formControlName="username" style="width: 15.63em;"
+            [autofocus]="true" />
+    </p-inputgroup>
+
+    <p-password formControlName="password" [toggleMask]="true" placeholder="Password" [feedback]="false" />
+
+    <p-button label="Submit" (onClick)="update()" />
+</form>

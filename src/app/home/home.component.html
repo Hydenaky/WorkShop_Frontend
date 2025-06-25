@@ -1,0 +1,23 @@
+<section style="display: flex; width: 100dvw; bottom: 0;">
+    <div style="width: 20%;" *ngIf="visible2">
+        <p-menu [model]="items"></p-menu>
+    </div>
+    <p-button (onClick)="showMenu()" icon="pi pi-bars" severity="contrast"></p-button>
+    <div style="width: 100%; padding-top: 10dvh;">
+        <!-- <div style="height: 10dvh;">
+        </div> -->
+        <p-splitter [style]="{ height: '90dvh' }" styleClass="mb-8" [panelSizes]="[50, 50]">
+            <ng-template pTemplate>
+                <div class="flex items-center justify-center h-full">
+                    <router-outlet name="first"></router-outlet>
+                </div>
+            </ng-template>
+            
+            <ng-template pTemplate>
+                <div class="flex items-center justify-center h-full">
+                    <router-outlet name="second"></router-outlet>
+                </div>
+            </ng-template>
+        </p-splitter>
+    </div>
+</section>

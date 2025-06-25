@@ -1,0 +1,10 @@
+    ::ng-deep .p-dialog-content {
+        height: 100%;
+        padding: 1rem;
+        box-sizing: border-box;
+    }
+
+    ::ng-deep .p-datepicker-input {
+        border: 2px solid black !important;
+        border-radius: 8px;
+    }
