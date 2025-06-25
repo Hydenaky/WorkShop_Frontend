@@ -61,6 +61,8 @@ export class EventsComponent implements OnInit {
   }
 
   addEvnt() {
+    console.log('add');
+    
     const date_interval: string = `${this.form.value.days} days ${this.form.value.hours} hours ${this.form.value.minutes} minutes`;
 
     try {
@@ -82,6 +84,8 @@ export class EventsComponent implements OnInit {
   }
 
   updateEvnt(id: number) {
+    console.log('update');
+    
     const date_interval: string = `${this.form.value.days} days ${this.form.value.hours} hours ${this.form.value.minutes} minutes`;
 
     try {

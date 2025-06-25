@@ -21,7 +21,7 @@ export class AuthService {
       );
       if (result !== null)
         this.validator = true
-      this.username = user.username;
+      this.username = user.username; 
     } catch (error) {
       console.error('Error en signIn:', error);
       this.validator = false;

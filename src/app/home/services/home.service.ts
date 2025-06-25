@@ -52,14 +52,9 @@ export class HomeService {
 
   async getEvnts(): Promise<void> {
     this.eventSubject.next([])
-    const payload = new EventClass(
-      '', '', '', ''
-    );
-    payload.createdByUser = this.authService.username;
-
     try {
       const result = await firstValueFrom(
-        this.httpClient.post('http://localhost:3000/event/getEvnts', payload.toJson())
+        this.httpClient.get(`http://localhost:3000/event/${this.authService.username}`)
       );
 
       if (result === null) {
